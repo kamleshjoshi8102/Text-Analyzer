@@ -27,12 +27,13 @@ export default function TextForm(props) {
     }
     return text.trim().split(/\.(?=\s)/).length;
   };
-  const handleWhiteSpaces = (text) =>{
+  const handleWhiteSpaces = () => {
     if (typeof text !== 'string') {
       return '';
     }
-    return text.replace(/\s/g, "");
+    setText(text.replace(/\s/g, ""));
   }
+  
 
   const calculateReadabilityScore = (text) => {
     const sentences = text.split(/[.?!]/);
