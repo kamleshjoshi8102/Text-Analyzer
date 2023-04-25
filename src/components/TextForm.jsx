@@ -4,19 +4,19 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     const newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("Converted to UpperCase","Sucess");
+    props.showAlert("Converted to UpperCase", "success");
   };
   const handleLowClick = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Converted to LowerCase","Sucess");
+    props.showAlert("Converted to LowerCase", "success");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
   const handleClearText = () => {
     setText("");
-    props.showAlert("Cleared Text","Sucess");
+    props.showAlert("Cleared Text", "success");
   };
   const getWordsLength = (text) => {
     if (text.trim() === "") {
@@ -36,20 +36,19 @@ export default function TextForm(props) {
     }
     setText(text.replace(/\s/g, ""));
 
-    props.showAlert("Removed Whitespaces","Sucess");
+    props.showAlert("Removed Whitespaces", "success");
   };
   const handleCopy = () => {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
-    props.showAlert("Copied to Clipboard","Sucess");
-    
+    document.getSelection().removeAllRanges();
+    props.showAlert("Copied to Clipboard", "success");
   };
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-
-    props.showAlert("Removed Extra Spaces","Sucess");
+    props.showAlert("Removed Extra Spaces", "success");
   };
 
   const calculateReadabilityScore = (text) => {
@@ -84,7 +83,7 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container" style={{}}>
+      <div className="container mb-4" style={{}}>
         <h1>{props.heading}</h1>
         <textarea
           className="form-control"
@@ -95,23 +94,47 @@ export default function TextForm(props) {
         ></textarea>
         <br />
         <div className="container my-3">
-          <button className="btn btn-success mx-1" onClick={handleUpClick}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleUpClick}
+          >
             Convert to Uppercase
           </button>
-          <button className="btn btn-success mx-1" onClick={handleLowClick}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleLowClick}
+          >
             Convert to LowerCase
           </button>
-          <button className="btn btn-success mx-1" onClick={handleWhiteSpaces}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleWhiteSpaces}
+          >
             Remove Whitespaces
           </button>
-          <button className="btn btn-success mx-1" onClick={handleExtraSpace}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleExtraSpace}
+          >
             Remove Extra Spaces
           </button>
-          <button className="btn btn-success mx-1" onClick={handleCopy}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleCopy}
+          >
             Copy To Clipboard
           </button>
 
-          <button className="btn btn-danger mx-1" onClick={handleClearText}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-danger mx-1 my-1"
+            onClick={handleClearText}
+          >
             Clear Text
           </button>
         </div>
@@ -124,7 +147,7 @@ export default function TextForm(props) {
           Emails.
         </p>
         <p>{0.008 * getWordsLength(text)} Minutes Read</p>
-        <p> {text.length>0?text:"Enter Something to Preview it here"}</p>
+        <p> {text.length > 0 ? text : "Nothing to Preview"}</p>
         <h2> Readablity Score (Flesch-Kincaid Grade Level score) </h2>
         <p> {calculateReadabilityScore(text)}</p>
       </div>

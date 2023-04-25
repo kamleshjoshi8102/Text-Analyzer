@@ -1,36 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 
 function About() {
-  const [btnTxt, setBtnText] = useState("Enable Dark Mode");
+  // const [btnTxt, setBtnText] = useState("Enable Dark Mode");
 
-  const [myStyle, setMyStyle] = useState({
-    color: "white",
-    backgroundColor: "black",
-    border: "1px solid white",
-    // :'2 px solid white'
-  });
-  const toggleStyle = () => {
-    if (myStyle.color === "white") {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-        border: "1px solid black",
-      });
-      setBtnText("Enable Dark Mode");
-    } else {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setBtnText("Enable Light Mode");
-    }
-  };
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  //   border: "1px solid black",
+  //   // :'2 px solid white'
+  // });
+  // const toggleStyle = () => {
+  //   if (myStyle.color === "white") {
+  //     setMyStyle({
+  //       color: "black",
+  //       backgroundColor: "white",
+  //       border: "1px solid black",
+  //     });
+  //     setBtnText("Enable Dark Mode");
+  //   } else {
+  //     setMyStyle({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //       border: "1px solid white",
+  //     });
+  //     setBtnText("Enable Light Mode");
+  //   }
+  // };
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container">
       <h1 className="my-3">About Us</h1>
-      <div className="accordion" id="accordionExample">
+      <p>
+      Text Analyzer is a utility which can be used to manipulate your text in the way you want. 
+      It also allows us to extract useful information from text, such as word count, character count, 
+      and sentence count. You can also convert your text to uppercase or lowercase, as well as capitalize 
+      the first letter of each word. Additionally, the application provides a unique feature to find the 
+      most frequently occurring words in your text and display them in a descending order of their frequency.
+    </p>
+    <p>
+      The Text Analyzer application is built using React, a popular JavaScript library for building user 
+      interfaces. It utilizes various React features such as hooks and props to create an interactive and 
+      responsive user interface. The application also uses Bootstrap, a popular CSS framework, for styling 
+      and layout purposes.
+    </p>
+
+
+     {/*  <div className="accordion" id="accordionExample">
         <div className="card" style={myStyle}>
           <div className="card-header" id="headingOne">
             <h2 className="mb-0">
@@ -47,7 +62,7 @@ function About() {
               </button>
             </h2>
           </div>
-
+ 
           <div
             id="collapseOne"
             className="collapse show"
@@ -147,7 +162,7 @@ function About() {
         <button onClick={toggleStyle} type="button" className="btn btn-primary">
           {btnTxt}{" "}
         </button>
-      </div>
+  </div> */}
     </div>
   );
 }
