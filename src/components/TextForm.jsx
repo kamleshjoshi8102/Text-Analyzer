@@ -22,7 +22,7 @@ export default function TextForm(props) {
     if (text.trim() === "") {
       return 0;
     }
-    return text.trim().split(" ").length;
+    return text.trim().split(/\s+/).length;
   };
   const getSentenceLength = (text) => {
     if (text.trim() === "") {
@@ -39,10 +39,7 @@ export default function TextForm(props) {
     props.showAlert("Removed Whitespaces", "success");
   };
   const handleCopy = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to Clipboard", "success");
   };
   const handleExtraSpace = () => {
@@ -77,6 +74,11 @@ export default function TextForm(props) {
     }
     const emails = matches.map((match) => match.trim() + " ");
     return { emails, count: emails.length };
+  };
+  const handleExtractNum = (text) => {
+    const pattern = /\d+(\.\d+)?/g; // regular expression pattern for matching numbers
+    const numbers = text.match(pattern);
+    return numbers.map(Number);
   };
 
   const [text, setText] = useState("");
@@ -129,6 +131,20 @@ export default function TextForm(props) {
           >
             Copy To Clipboard
           </button>
+          {/*
+            <button
+            disabled={text.length === 0}
+            className="btn btn-success mx-1 my-1"
+            onClick={handleExtractNum}
+          >
+            Extract Numbers
+          </button>
+
+          // Extract Emails
+          // Extract 
+          // Encode to base64
+          // Redo or Undo Action
+        */}
 
           <button
             disabled={text.length === 0}

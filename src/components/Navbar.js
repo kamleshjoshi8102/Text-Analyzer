@@ -35,11 +35,94 @@ export default function Navbar(props) {
             </li>
           </ul>
           {/*
-            <div className="d-flex">
-            <div className="bg-primary rounded mx-2" style={{height:'30px',width:'30px'}}>
-            </div>
-            </div>
+          <div className="d-flex">
+            <div
+              className="bg-primary rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("primary");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+            <div
+              className="bg-danger rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("danger");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+            <div
+              className="bg-success rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("success");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+            <div
+              className="bg-warning  rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("warning");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+            <div
+              className="bg-white  rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("light");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+            <div
+              className="bg-dark  rounded-circle mx-1 my-1"
+              onClick={() => {
+                props.toggleMode("dark");
+              }}
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                borderRadius: "50%",
+                borderWidth: "2px",
+                borderStyle: "solid",
+              }}
+            ></div>
+          </div>
         */}
+
           <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"
@@ -47,9 +130,12 @@ export default function Navbar(props) {
           >
             <input
               className="form-check-input"
-              onClick={props.toggleMode}
+              onClick={() => {
+                props.toggleMode(null);
+              }}
               type="checkbox"
               id="flexSwitchCheckDefault"
+              style={{ cursor: "pointer" }}
             />
             <label
               className="form-check-label"
