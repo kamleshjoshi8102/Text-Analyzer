@@ -75,11 +75,11 @@ export default function TextForm(props) {
     const emails = matches.map((match) => match.trim() + " ");
     return { emails, count: emails.length };
   };
-  const handleExtractNum = (text) => {
-    const pattern = /\d+(\.\d+)?/g; // regular expression pattern for matching numbers
-    const numbers = text.match(pattern);
-    return numbers.map(Number);
-  };
+  // const handleExtractNum = (text) => {
+  //   const pattern = /\d+(\.\d+)?/g; // regular expression pattern for matching numbers
+  //   const numbers = text.match(pattern);
+  //   return numbers.map(Number);
+  // };
 
   const [text, setText] = useState("");
 
